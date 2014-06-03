@@ -1,0 +1,5 @@
+<ul>
+  <% _.each(projects, function(project){ %>
+   <li><a href='<%= project.get("url") %>'><%= project.get("name") %></a></li> 
+  <% }); %>
+</ul>
