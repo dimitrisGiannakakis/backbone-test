@@ -4,7 +4,6 @@ define([
   'underscore',
   'backbone',
   'views/projects/list',
-<<<<<<< HEAD
   'views/projects/todo'
 ], function($, _, Backbone, ProjectListView, TodoView){
 
