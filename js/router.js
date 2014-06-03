@@ -4,8 +4,10 @@ define([
   'underscore',
   'backbone',
   'views/projects/list',
+<<<<<<< HEAD
   'views/projects/todo'
 ], function($, _, Backbone, ProjectListView, TodoView){
+
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
@@ -15,7 +17,7 @@ define([
       '*actions': 'defaultAction'
     }
   });
-  
+
 
   var initialize = function(){
     var app_router = new AppRouter;
@@ -25,6 +27,7 @@ define([
       var projectListView = new ProjectListView();
       projectListView.render();
     });
+
 
      app_router.on('route:createList', function(){
       // We have no matching route, lets just log what the URL was
