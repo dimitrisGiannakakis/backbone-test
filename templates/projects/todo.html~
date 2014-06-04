@@ -1,6 +1,11 @@
 <div>
 	<label> Todo List</label>
-	<input type="text">
-
+	<input type="text" id="text1" value="">
+	<ul id="todo-list"></ul>
+	<ul>
+  <% _.each(projects, function(project){ %>
+   <li><a ><%= project.get("id") %> <button class="destroy2">X</button></a></li> 
+  <% }); %>
+</ul
 
 </div>

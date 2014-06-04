@@ -9,11 +9,11 @@ define([
     var TodoView = Backbone.View.extend({
     el: $("#container"),
     events : {
-        'keypress #text1': 'addOne'
+        'keypress #text1': 'addOne',
     },
     initialize: function(){
-        this.$input = this.$('#text1');
         this.collection = new ProjectsCollection();
+	this.collection.fetch();
     },
     render: function() {
         var compiledTemplate = _.template( TodoTemplate, { projects: this.collection.models } );
@@ -25,6 +25,7 @@ define([
     addOne: function(e){
         if (e.keyCode == 13) {
             var item = new ItemView();
+;
             $('#todo-list').append(item.render().el);
         }
     }
