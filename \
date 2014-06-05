@@ -13,27 +13,19 @@ define([
     },
     initialize: function(){
         this.collection = new ProjectsCollection();
-	     var items = this.collection.fetch();
+	    this.collection.fetch();
     },
     render: function() {
         var compiledTemplate = _.template( TodoTemplate, { projects: this.collection.models } );
         this.$el.html(compiledTemplate);
-        for( var i = 0 ; i<this.collection.length; i++) {
-            //console.log(this.collection.models[i].attributes.title);
-            console.log(this.collection.at(i));
-            var itemview = new ItemView({model: this.collection.at(i)})
-                $('#todo-list').append(itemview.render().$el);
-        }
     },
     createOnEnter: function(e){
         this.$input.val();
     },
     addOne: function(e){
         if (e.keyCode == 13) {
-            var model = this.collection.create({'title' : $('#text1').val()});
-            var item = new ItemView({model: model});
+            var item = new ItemView();
             $('#todo-list').append(item.render().el);
-            $('#text1').val('');
         }
     }
     });

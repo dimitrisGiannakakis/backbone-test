@@ -8,8 +8,8 @@ define([
 ], function(_, Backbone, Storage, ListModel){
   var ProjectCollection = Backbone.Collection.extend({
     model: ListModel,
-  localStorage: new Storage('ProjectCollection'),
+    localStorage: new Storage('ProjectCollection'),
   });
   // You don't usually return a collection instantiated
-  return ProjectCollection;
+    return ProjectCollection;
 });

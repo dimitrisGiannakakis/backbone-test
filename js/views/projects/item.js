@@ -2,29 +2,27 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/projects/projects',
-  'text!templates/projects/todo.html'
-], function($, _, Backbone, ProjectsCollection, TodoTemplate){
+  'text!templates/projects/item.html'
+], function($, _, Backbone, ItemTemplate){
   var ItemView = Backbone.View.extend({
     tagName :'li',
     events : {
     	'click .destroy' : 'clear'
     },
     initialize: function(){
-    this.collection = new ProjectsCollection();
-
     },
     render: function() {
-	    console.log(this);
-	  
-      this.$el.html('<pre>'+$('#text1').val()+'<button class="destroy">X</button></pre>');
-      this.collection.create({'title' : $('#text1').val()});
-      $('#text1').val('');
-      return this;
+	   // console.log(this);
+        var compiledTemplate = _.template( ItemTemplate, { item: this.model.toJSON() } );
+        this.$el.html(compiledTemplate);
+       // this.collection.create({'title' : $('#text1').val()});
+        return this;
     },
     clear: function(e) {
-	    console.log(  this.collection);
-      this.remove(this);
+        this.remove(this);
+        //this.collection.destroy();
+        console.log(this.model);
+        this.model.destroy();
     }
  });
   // Returning instantiated views can be quite useful for having "state"

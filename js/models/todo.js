@@ -6,9 +6,8 @@ define([
   var ListModel = Backbone.Model.extend({
     defaults: {
         title :"",
-        complteted: false
     }
   });
-  // Return the model for the module
+  //Return the model for the module
   return ListModel;
 });

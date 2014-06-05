@@ -17,7 +17,6 @@ define([
     }
   });
 
-
   var initialize = function(){
     var app_router = new AppRouter;
     app_router.on('route:showProjects', function(){
@@ -26,7 +25,6 @@ define([
       var projectListView = new ProjectListView();
       projectListView.render();
     });
-
 
      app_router.on('route:createList', function(){
       // We have no matching route, lets just log what the URL was
